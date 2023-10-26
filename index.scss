@@ -1,0 +1,18 @@
+html {
+    body{
+        main{
+            section{
+                div{
+                    opacity: 0;
+                    transition: all 0.4s ease;
+                    position: absolute;
+                }
+                .visible{
+                    transition: all 0.4s ease;
+                    opacity: 1;
+                    position: relative;
+                }
+            }
+        }
+    }
+}

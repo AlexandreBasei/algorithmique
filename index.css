@@ -1,0 +1,10 @@
+html body main section div {
+  opacity: 0;
+  transition: all 0.4s ease;
+  position: absolute;
+}
+html body main section .visible {
+  transition: all 0.4s ease;
+  opacity: 1;
+  position: relative;
+}/*# sourceMappingURL=index.css.map */

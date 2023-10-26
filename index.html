@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Algorithmique</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <main>
+        <h1>Algorithmique</h1>
+        <section>
+            <h2>Consignes</h2>
+            <p>Faites une page web illustrant le TD<br>
+                => Comparaison des temps d'exécution de : <br>
+                - Recherche dans un tableau trié : dichotomie vs naïf<br>
+                - 3 algorithmes de tri (tri à bulles, tri par insertion, tri fusion)<br>
+                -> Graphe comparatif (sur ChartJS : taille des données/tableau en abscisse et temps d'exécution en
+                ordonnée)<br>
+                -> Petit commentaire explicatif personnel<br>Donc faire une fonction qui génère un tableau d'une taille
+                aléatoire<br>
+                Utiliser le moins possible des fonctions natives (sauf splice)<br>
+                + Calculer la complexité des algorithmes</p>
+        </section>
+
+        <h2>Projet</h2>
+        <section>
+            <h3>Création d'un tableau</h3>
+            <label for="creatab">Générer un tableau de taille n</label>
+            <input id="inputtab" name="creatab" type="number" placeholder="n">
+            <button id="gentab">Générer</button>
+            <p id="printTab">Tableau :</p>
+        </section>
+
+        <section id="tri">
+            <h3>Tri du tableau</h3>
+            <select id="selectTri" name="algotri" id="algotri">
+                <option selected disabled>Choisir un algorithme de tri</option>
+                <option value="bulle">Tri à bulles</option>
+                <option value="insertion">Tri par insertion</option>
+                <option value="fusion">Tri fusion</option>
+            </select>
+
+            <div id="triBulle">
+                <button id="printBulle">Trier le tabeau</button>
+                <p id="pBulle"></p>
+            </div>
+
+            <div id="triInsert">
+                <button id="printInsert">Trier le tabeau</button>
+                <p id="pInsert"></p>
+            </div>
+
+            <div id="triFusion">
+                CCCCC
+            </div>
+
+        </section>
+    </main>
+    <script src="./script.js"></script>
+</body>
+
+</html>
