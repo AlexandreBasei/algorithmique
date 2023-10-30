@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projet Algorithmique</title>
     <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
     <main>
+        <loader><div></div></loader>
         <h1>Algorithmique</h1>
         <section>
             <h2>Consignes</h2>
@@ -27,12 +29,13 @@
 
         <h2>Projet</h2>
         <section>
-            <h3>Création d'un tableau</h3>
-            <label for="creatab">Générer un tableau de taille n</label>
-            <input id="inputtab" name="creatab" type="number" placeholder="n">
-            <button id="gentab">Générer</button>
-            <p id="printTab">Tableau :</p>
+            <h3>Recherche d'un nombre n dans un tableau trié</h3>
+            <label for="chercher">Nombre à trouver (entre 0 et 99) :</label>
+            <input id="chercherInput" name="chercher" type="number" placeholder="n">
+            <button id="chercher">Rechercher</button>
+            <div id="dicho" class="graphecontainer" style="width: 800px;"><canvas id="dichoChart"></canvas></div>
         </section>
+
 
         <section id="tri">
             <h3>Tri du tableau</h3>
@@ -45,16 +48,17 @@
 
             <div id="triBulle">
                 <button id="printBulle">Trier le tabeau</button>
-                <p id="pBulle"></p>
+                <div class="graphecontainer" style="width: 800px;"><canvas id="bulleChart"></canvas></div>
             </div>
 
             <div id="triInsert">
                 <button id="printInsert">Trier le tabeau</button>
-                <p id="pInsert"></p>
+                <div class="graphecontainer" style="width: 800px;"><canvas id="insertChart"></canvas></div>
             </div>
 
             <div id="triFusion">
-                CCCCC
+                <button id="printFusion">Trier le tabeau</button>
+                <div class="graphecontainer" style="width: 800px;"><canvas id="fusionChart"></canvas></div>
             </div>
 
         </section>
