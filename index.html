@@ -11,56 +11,50 @@
 
 <body>
     <main>
-        <loader><div></div></loader>
-        <h1>Algorithmique</h1>
-        <section>
-            <h2>Consignes</h2>
-            <p>Faites une page web illustrant le TD<br>
-                => Comparaison des temps d'exécution de : <br>
-                - Recherche dans un tableau trié : dichotomie vs naïf<br>
-                - 3 algorithmes de tri (tri à bulles, tri par insertion, tri fusion)<br>
-                -> Graphe comparatif (sur ChartJS : taille des données/tableau en abscisse et temps d'exécution en
-                ordonnée)<br>
-                -> Petit commentaire explicatif personnel<br>Donc faire une fonction qui génère un tableau d'une taille
-                aléatoire<br>
-                Utiliser le moins possible des fonctions natives (sauf splice)<br>
-                + Calculer la complexité des algorithmes</p>
+        <loader><h3>La durée du tri est d'environ 1min15</h3><div></div></loader>
+
+        <section id="accueil">
+            <h2>Complexité</h2>
+            <p>Ce site web consiste à montrer à l'aide de plusieurs exemples qu'il est important de prendre en compte la complexité d'un algorithme lorsque l'on souhaite en créer ou en utiliser. <br><br>Dans un premier temps, vous pourrez comparer le temps d'exécution d'une recherche dichotomique et d'une recherche naïve en fonction de la taille des données. <br><br>Enfin, vous pourrez comparer le temps d'exécution de différents algorithmes de tri : le tri à bulle, le tri par insertion et le tri fusion.<br><br><span>Bonne visite !</span></p>
+
+            <button id="demarrer">Démarrer</button>
         </section>
 
-        <h2>Projet</h2>
-        <section>
-            <h3>Recherche d'un nombre n dans un tableau trié</h3>
+        <section id="recherche">
+            <h2>Recherche d'un nombre n dans un tableau trié</h2>
             <label for="chercher">Nombre à trouver (entre 0 et 99) :</label>
-            <input id="chercherInput" name="chercher" type="number" placeholder="n">
-            <button id="chercher">Rechercher</button>
-            <div id="dicho" class="graphecontainer" style="width: 800px;"><canvas id="dichoChart"></canvas></div>
+            <div>
+                <input id="chercherInput" name="chercher" type="number" value="0" min="0" max="99">
+                <button id="chercher">Rechercher</button>
+            </div>
+
+            <div class="explications">
+                <div id="dicho" class="graphecontainer" style="width: 800px;">
+                    <canvas id="dichoChart"></canvas>
+                </div>
+
+                <p>Recherche dichotomique :<br>réalise une recherche dans un tableau trié, en divisant le tableau en deux à chaque itération et en continuant la recherche dans la moitié appropriée. À chaque itération on compare la valeur recherchée à l'élément situé au milieu du tableau, jusqu'à trouver la bonne valeur. <br> La complexité de la recherche dichotomique est logarithmique en base 2 ou O(logn) : le nombre d'itérations nécessaires pour trouver l'élément recherché croît de manière logarithmique en fonction de la taille du tableau. En comparaison, la recherche naïve a une complexité O(n) : dans le pire des cas, le nombre d'itérations sera égal à la taille du tableau, ce qui est problématique lorsque l'on traite beaucoup de données.</p>
+            </div>
+
+            <p id="pRecherche">Ce graphe nous permet d'observer que la recherche dichotomique est beaucoup plus rapide que la recherche naïve, surtout lorsque le nombre recherché se rapproche de 99. Lorsque l'on cherche le chiffre 0, les deux algorithmes prennent moins d'1 milliseconde pour effectuer la recherche : la recherche naïve tombe directement sur 0 et la recherche dichotomique est tellement rapide qu'on ne peut pas voir de différence avec ces tailles de données. En revanche, lorsque l'on cherche le nombre 99, la recherche naïve met environ 3 fois plus de temps à effectuer la recherche entre des données d'une taille 500 000 et 1 000 000.</p>
+
+            <button id="next">Suite</button>
         </section>
 
 
         <section id="tri">
-            <h3>Tri du tableau</h3>
-            <select id="selectTri" name="algotri" id="algotri">
-                <option selected disabled>Choisir un algorithme de tri</option>
-                <option value="bulle">Tri à bulles</option>
-                <option value="insertion">Tri par insertion</option>
-                <option value="fusion">Tri fusion</option>
-            </select>
+            <h2>Tri de tableaux</h2>
 
-            <div id="triBulle">
-                <button id="printBulle">Trier le tabeau</button>
-                <div class="graphecontainer" style="width: 800px;"><canvas id="bulleChart"></canvas></div>
+            <button id="afficherGraphe">Démarrer le tri</button>
+
+            <div class="explications">
+                <div class="graphecontainer" style="width: 800px;"><canvas id="triChart"></canvas></div>
+                <p>La complexité du tri à bulles et du tri par insertion est quadratique, O(n²). Le nombre d'opérations nécessaires pour trier un tableau de n éléments est proportionnel au carré du nombre d'éléments. Cela atteint vite ses limites lorsque l'on doit traiter beaucoup de données<br> Enfin, la complexité du tri fusion est logarithmique, O(nlogn) , comme la dichotomie. La division répétée des données réduit le temps de traitement de manière exponentielle, ce qui en fait l'un des algorithmes de tri les plus efficaces pour les collections de données de grande taille</p>
             </div>
 
-            <div id="triInsert">
-                <button id="printInsert">Trier le tabeau</button>
-                <div class="graphecontainer" style="width: 800px;"><canvas id="insertChart"></canvas></div>
-            </div>
+            <p id="pTri">Grâce à ce graphe on remarque que le tri fusion est beaucoup plus performant que les deux autres algorithmes de tri, car il arrive à trier un tableau de taille 1 million en moins d'une demi seconde, et un tableau de taille 10 million en environ 3 secondes. En comparaison le tri à bulle atteint sa limite avec un tableau de taille 100 000, qu'il met environ 10 secondes à trier contre 25ms pour le tri fusion, qui est donc environ 400 fois plus rapide avec cette taille de données. Le tri par insertion met quand à lui 1600ms pour trier un tableau de cette taille, ce qui est 6 fois plus rapide que le tri à bulle mais 63 fois moins rapide que le tri fusion. le tri par insertion atteint ses limites avec un tableau de taille 500 000, qu'il met 41 secondes à trier contre 153ms pour le tri fusion, qui est donc 267 fois plus rapide.</p>
 
-            <div id="triFusion">
-                <button id="printFusion">Trier le tabeau</button>
-                <div class="graphecontainer" style="width: 800px;"><canvas id="fusionChart"></canvas></div>
-            </div>
-
+            <button id="back">Retour</button>
         </section>
     </main>
     <script src="./script.js"></script>

@@ -1,66 +1,245 @@
-html {
+@font-face {
+    font-family: "Genshin";
+    src:
+        url("./zh-cn.woff2") format("woff2"),
+        url("./zh-cn.woff") format("woff");
+}
+
+$fond0: #2f111d;
+$fond1: #562e46;
+$fond2: #6a4e76;
+$boutons: #e4d9d4;
+
+html,
+body {
     margin: 0;
     padding: 0;
-    body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: Genshin;
+}
+
+canvas {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+html {
+    body {
         margin: 0;
         padding: 0;
-        main{
-            loader{
+        main {
+            loader {
+                overflow-y: hidden;
                 position: absolute;
-                width: 100%;
-                height: 100%;
-                background-color: #fff;
+                width: 100vw;
+                height: 100vh;
+                background-color: #413e53;
                 opacity: 0;
                 z-index: 10000;
                 transition: opacity 0.4s ease;
                 pointer-events: none;
-                div{
+                display: flex;
+                flex-flow: wrap column;
+                justify-content: center;
+                align-items: center;
+
+                h3 {
+                    display: none;
+                    color: white;
+                }
+                div {
                     border: 10px solid #f3f3f3;
-                    border-top: 10px solid #2c3e50;
-                    border-bottom: 10 px solid #e74c3c;
+                    border-top: 10px solid #bf404b;
                     border-radius: 50%;
                     width: 100px;
                     height: 100px;
                     animation: spin 2s linear infinite;
-                    margin: auto;
-                    position: absolute;
-                    top: 0; left: 0; right: 0; bottom: 0;
+                    position: relative;
                 }
             }
 
-            .loader{
+            .loader {
                 opacity: 1;
-                pointer-events: fill;
+                pointer-events: all;
             }
 
             @keyframes spin {
-                0%{
+                0% {
                     transform: rotate(0deg);
                 }
                 100% {
                     transform: rotate(360deg);
                 }
             }
-            section{
-                #dicho{
+
+            section {
+                position: absolute;
+                display: flex;
+                flex-flow: wrap column;
+                align-items: center;
+                color: white;
+                background-color: $fond1;
+                width: 80vw;
+                height: 100vh;
+                left: 0;
+                transition: left 0.5s ease;
+
+                h2 {
+                    margin: 10vh 0 5vh 0;
+                    color: white;
+                    text-align: center;
+                    font-size: 2em;
+                }
+
+                button {
+                    font-family: Genshin;
+                    padding: 10px 20px;
+                    border-radius: 50px;
+                    border: 3px solid transparent;
+                    transition: all 0.15s ease;
+                    background-color: $boutons;
+                }
+
+                button:hover {
+                    border: 3px solid white;
+                    box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.362);
+                    cursor: pointer;
+                }
+            }
+
+            section::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: -19.9vw; /* Ajustez la valeur pour contrôler l'inclinaison */
+                border-top: 100vh solid transparent; /* Hauteur du triangle incliné */
+                border-left: 20vw solid $fond1; /* Couleur et largeur de la bordure */
+                z-index: 0;
+            }
+
+            #accueil{
+                z-index: 5;
+                background-color: $fond0;
+                width: 80vw;
+
+                h2{
+                    margin-top: 20vh;
+                    font-size: 3em;
+                }
+
+                p{
+                    width: 40vw;
+                }
+
+                span{
+                    font-size: 1.3em;
+                }
+            }
+
+            #accueil::after{
+                border-left: 20vw solid $fond0;
+            }
+
+            #recherche {
+                z-index: 2;
+                background-color: $fond1;
+                width: 85vw;
+
+                label {
+                    margin-bottom: 2vh;
+                }
+
+                input {
+                    border: none;
+                    padding: 10px;
+                    border-radius: 50px;
+                    font-family: Genshin;
+                    width: 50px;
+                    background-color: $boutons;
+                }
+
+                .explications {
+                    display: flex;
+                    flex-flow: wrap row;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 5vh;
+                    margin-top: 5vh;
                     opacity: 1;
                     position: relative;
-                }
-                div{
-                    opacity: 0;
-                    transition: all 0.4s ease;
-                    position: absolute;
 
-                    div{
-                        opacity: 1;
-                        position: relative;
+                    p {
+                        color: white;
+                        width: 15vw;
+                        font-size: 0.8em;
+                        border: 2px solid white;
+                        padding: 10px;
+                        border-radius: 10px;
                     }
                 }
-                .visible{
-                    transition: all 0.4s ease;
+
+                p {
+                    color: white;
+                    display: none;
+                    margin-top: 2vh;
+                    width: 45vw;
+                }
+
+                #next{
+                    display: none;
+                    position: absolute;
+                    top: 45vh;
+                    left: 80vw;
+                    z-index: 3;
+                }
+            }
+
+            .next{
+                left: -90vw;
+            }
+
+            #tri {
+                background-color: $fond2;
+                width: 100vw;
+
+                .explications {
+                    display: flex;
+                    flex-flow: wrap row;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 5vh;
+                    margin-top: 5vh;
                     opacity: 1;
                     position: relative;
+
+                    p {
+                        color: white;
+                        width: 15vw;
+                        font-size: 0.8em;
+                        border: 2px solid white;
+                        padding: 10px;
+                        border-radius: 10px;
+                    }
                 }
+                
+                p{
+                    width: 50vw;
+                    display: none;
+                }
+
+                #back{
+                    display: none;
+                    position: absolute;
+                    top: 45vh;
+                    left: 85vw;
+                }
+            }
+
+            #tri::after{
+                display: none;
             }
         }
     }

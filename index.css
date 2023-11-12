@@ -1,39 +1,59 @@
-html {
+@charset "UTF-8";
+@font-face {
+  font-family: "Genshin";
+  src: url("./zh-cn.woff2") format("woff2"), url("./zh-cn.woff") format("woff");
+}
+html,
+body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  font-family: Genshin;
 }
+
+canvas {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  opacity: 0;
+}
+
 html body {
   margin: 0;
   padding: 0;
 }
 html body main loader {
+  overflow-y: hidden;
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+  background-color: #413e53;
   opacity: 0;
   z-index: 10000;
   transition: opacity 0.4s ease;
   pointer-events: none;
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: center;
+  align-items: center;
+}
+html body main loader h3 {
+  display: none;
+  color: white;
 }
 html body main loader div {
   border: 10px solid #f3f3f3;
-  border-top: 10px solid #2c3e50;
-  border-bottom: 10 px solid #e74c3c;
+  border-top: 10px solid #bf404b;
   border-radius: 50%;
   width: 100px;
   height: 100px;
   animation: spin 2s linear infinite;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
 }
 html body main .loader {
   opacity: 1;
-  pointer-events: fill;
+  pointer-events: all;
 }
 @keyframes spin {
   0% {
@@ -43,21 +63,146 @@ html body main .loader {
     transform: rotate(360deg);
   }
 }
-html body main section #dicho {
-  opacity: 1;
-  position: relative;
-}
-html body main section div {
-  opacity: 0;
-  transition: all 0.4s ease;
+html body main section {
   position: absolute;
+  display: flex;
+  flex-flow: wrap column;
+  align-items: center;
+  color: white;
+  background-color: #562e46;
+  width: 80vw;
+  height: 100vh;
+  left: 0;
+  transition: left 0.5s ease;
 }
-html body main section div div {
+html body main section h2 {
+  margin: 10vh 0 5vh 0;
+  color: white;
+  text-align: center;
+  font-size: 2em;
+}
+html body main section button {
+  font-family: Genshin;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 3px solid transparent;
+  transition: all 0.15s ease;
+  background-color: #e4d9d4;
+}
+html body main section button:hover {
+  border: 3px solid white;
+  box-shadow: 0 0 2px 2px rgba(255, 255, 255, 0.362);
+  cursor: pointer;
+}
+html body main section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -19.9vw; /* Ajustez la valeur pour contrôler l'inclinaison */
+  border-top: 100vh solid transparent; /* Hauteur du triangle incliné */
+  border-left: 20vw solid #562e46; /* Couleur et largeur de la bordure */
+  z-index: 0;
+}
+html body main #accueil {
+  z-index: 5;
+  background-color: #2f111d;
+  width: 80vw;
+}
+html body main #accueil h2 {
+  margin-top: 20vh;
+  font-size: 3em;
+}
+html body main #accueil p {
+  width: 40vw;
+}
+html body main #accueil span {
+  font-size: 1.3em;
+}
+html body main #accueil::after {
+  border-left: 20vw solid #2f111d;
+}
+html body main #recherche {
+  z-index: 2;
+  background-color: #562e46;
+  width: 85vw;
+}
+html body main #recherche label {
+  margin-bottom: 2vh;
+}
+html body main #recherche input {
+  border: none;
+  padding: 10px;
+  border-radius: 50px;
+  font-family: Genshin;
+  width: 50px;
+  background-color: #e4d9d4;
+}
+html body main #recherche .explications {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+  margin-top: 5vh;
   opacity: 1;
   position: relative;
 }
-html body main section .visible {
-  transition: all 0.4s ease;
+html body main #recherche .explications p {
+  color: white;
+  width: 15vw;
+  font-size: 0.8em;
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 10px;
+}
+html body main #recherche p {
+  color: white;
+  display: none;
+  margin-top: 2vh;
+  width: 45vw;
+}
+html body main #recherche #next {
+  display: none;
+  position: absolute;
+  top: 45vh;
+  left: 80vw;
+  z-index: 3;
+}
+html body main .next {
+  left: -90vw;
+}
+html body main #tri {
+  background-color: #6a4e76;
+  width: 100vw;
+}
+html body main #tri .explications {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
+  align-items: center;
+  gap: 5vh;
+  margin-top: 5vh;
   opacity: 1;
   position: relative;
+}
+html body main #tri .explications p {
+  color: white;
+  width: 15vw;
+  font-size: 0.8em;
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 10px;
+}
+html body main #tri p {
+  width: 50vw;
+  display: none;
+}
+html body main #tri #back {
+  display: none;
+  position: absolute;
+  top: 45vh;
+  left: 85vw;
+}
+html body main #tri::after {
+  display: none;
 }/*# sourceMappingURL=index.css.map */
