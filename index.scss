@@ -26,6 +26,10 @@ canvas {
     opacity: 0;
 }
 
+.graphecontainer{
+    width: 500px;
+}
+
 html {
     body {
         margin: 0;
@@ -243,6 +247,38 @@ html {
             #tri::after{
                 display: none;
             }
+        }
+    }
+}
+
+@media screen and (min-width: 1800px) {
+
+    .graphecontainer{
+        width: 800px;
+    }
+
+    html body main #recherche {
+        .explications p{
+            width: 15vw;
+            font-size: 0.8em;
+        }
+
+        p{
+            width: 50vw;
+            font-size: 1em;
+        }
+    }
+
+    html body main #tri {
+
+        .explications p{
+            width: 15vw;
+            font-size: 0.8em;
+        }
+
+        p{
+            width: 50vw;
+            font-size: 1em;
         }
     }
 }
