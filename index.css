@@ -149,8 +149,8 @@ html body main #recherche .explications {
 }
 html body main #recherche .explications p {
   color: white;
-  width: 15vw;
-  font-size: 0.8em;
+  width: 20vw;
+  font-size: 0.5em;
   border: 2px solid white;
   padding: 10px;
   border-radius: 10px;
@@ -159,7 +159,8 @@ html body main #recherche p {
   color: white;
   display: none;
   margin-top: 2vh;
-  width: 45vw;
+  font-size: 0.7em;
+  width: 60vw;
 }
 html body main #recherche #next {
   display: none;
@@ -187,14 +188,15 @@ html body main #tri .explications {
 }
 html body main #tri .explications p {
   color: white;
-  width: 15vw;
-  font-size: 0.8em;
+  width: 20vw;
+  font-size: 0.5em;
   border: 2px solid white;
   padding: 10px;
   border-radius: 10px;
 }
 html body main #tri p {
-  width: 50vw;
+  width: 60vw;
+  font-size: 0.7em;
   display: none;
 }
 html body main #tri #back {
